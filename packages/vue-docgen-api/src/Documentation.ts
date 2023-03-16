@@ -42,6 +42,7 @@ export default class Documentation {
 	private dataMap: Map<string, any>
 	private docsBlocks: string[] | undefined
 	private originExtendsMixin: Descriptor
+	private dependencies: string[] = []
 	public readonly componentFullfilePath: string
 
 	public constructor(fullFilePath: string) {
@@ -107,6 +108,10 @@ export default class Documentation {
 		}))
 	}
 
+	public addDependencies(...dependencies: string[]): void {
+		this.dependencies.push(...dependencies)
+	}
+
 	public toObject(): ComponentDoc {
 		const props = this.getObjectFromDescriptor(this.propsMap)
 		const methods = this.getObjectFromDescriptor(this.methodsMap)
@@ -138,7 +143,8 @@ export default class Documentation {
 			props,
 			events,
 			methods,
-			slots
+			slots,
+			dependencies: this.dependencies,
 		}
 	}
 

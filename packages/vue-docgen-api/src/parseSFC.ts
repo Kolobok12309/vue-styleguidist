@@ -120,6 +120,7 @@ async function parseScriptTag(
 			: ''
 		if (extSource.length) {
 			scriptSource = extSource
+			documentation?.addDependencies(extSrc)
 			opt.lang =
 				(scriptTag && scriptTag.attrs && /^tsx?$/.test(scriptTag.attrs.lang as string)) ||
 				/\.tsx?$/i.test(extSrc)

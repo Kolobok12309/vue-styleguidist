@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "docgen": "vue-docgen",
+    "docgen:watch": "vue-docgen --watch"
+  },
+  "dependencies": {
+    "vue-docgen-cli": "workspace:*",
+    "vue-docgen-api": "workspace:*"
+  }
+}
